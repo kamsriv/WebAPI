@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace WebAPI
+namespace StudentAPI
 {
     public class Startup
     {
@@ -27,8 +27,10 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
-            services.DBConfig(Configuration);
+            services.AddControllers();            
+            //Assigning the connection string directly without using any OPtions 
+            DB.ConStr = ConfigurationExtensions.GetConnectionString(this.Configuration,"DevDBConstr");
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
@@ -36,7 +38,7 @@ namespace WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -44,7 +46,7 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
-
+            loggerFactory.AddLog4Net();
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace StudentAPI
+namespace StudentAPI.Models
 {
-    class Student:IStudent
+    public class Student:IStudent
     {
         public long stuID{get;set;}
         public string Name{get;set;}

@@ -1,3 +1,4 @@
+
 namespace StudentAPI
 {
     public class Common : ICommon
@@ -45,12 +46,11 @@ namespace StudentAPI
         public StudentAPIException():base(DefaultMessage) { }
         public StudentAPIException(string message) : base(message)
         {
-            //Log.Error($"An exception has occurred in the API controller {message}");
-            
+            ErrLogger.LogMessage($"An exception has occurred in the API controller {message}",ErrLogger.LogType.ERROR);
         }
         public StudentAPIException(string message, System.Exception inner) : base(message, inner)
         {
-            //Log.Error($"An exception has occurred in the API controller {message}\nStackTrace: {inner.ToString()}");
+            ErrLogger.LogMessage($"An exception has occurred in the API controller {message}\nStackTrace: {inner.ToString()}",ErrLogger.LogType.ERROR);
         }
     }
 }

@@ -1,4 +1,4 @@
-interface ICommon
+public interface ICommon
 {
     string Message { get; set; }
     bool IsSuccess { get; set; }

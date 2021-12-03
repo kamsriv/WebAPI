@@ -7,13 +7,9 @@ namespace StudentAPI
     public class DB
     {
         static IDbConnection _con = null;
-        public static string _conStr = "";
-        public DB(IConfiguration configuration)
-        {
-            _conStr = configuration.GetConnectionString("DevDBConstr");
-        }
-        
-        static object obj;
+        public static string ConStr = "";
+        private DB(){}
+        static object obj = new object();
         public static IDbConnection GetConnection()
         {
             lock (obj)
@@ -22,7 +18,7 @@ namespace StudentAPI
                 {
                     try
                     {
-                        _con = new SqlConnection(_conStr);
+                        _con = new SqlConnection(ConStr);
                         _con.Open();
                     }
                     catch (SqlException ex)

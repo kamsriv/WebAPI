@@ -4,28 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using StudentAPI;
+using StudentAPI.Repositories;
+using StudentAPI.Models;
+using StudentAPI.Business;
+
 namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private readonly ILogger<StudentController> _logger;
-
-        public StudentController(ILogger<StudentController> logger)
+        public StudentController()
         {
-            _logger = logger;
+
         }
         [HttpPost]
-        public OkResult Create([FromBody] IStudent student)
+        public OkResult Create([FromBody] Student student)
         {
             return Ok();
         }
         [HttpGet]
-        public void Get()
-        {
+        public ActionResult Get()
+        {            
             
+            ErrLogger.LogMessage("Getting the student information", ErrLogger.LogType.FATAL);
+            return Ok("Fetched the student Results");
         }
     }
 }

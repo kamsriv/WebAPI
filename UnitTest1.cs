@@ -1,16 +1,36 @@
 using System;
 using Xunit;
 using StudentAPI;
-using System.Data;
+using Microsoft.AspNetCore.Mvc.Testing;
 namespace WebAPI
 {
-    public class DataModel_UnitTests
+    public class DataModel_UnitTests : IClassFixture<WebApplicationFactory<Startup>>
     {
+
+        private readonly WebApplicationFactory<Startup> _factory;
+
+        public DataModel_UnitTests(WebApplicationFactory<Startup> factory)
+        {
+            _factory = factory;
+        }
+
+        [Fact]
+        public void TestConnection()
+        {
+            // Arrange
+            var client = _factory.CreateClient();
+
+            // Act
+            var response = client.GetAsync("http://localhost:5000/Student");
+            Assert.Equal("200",response.Status.ToString());
+
+        }
+
         [Fact]
         public void TestStudent()
         {
-            Console.WriteLine(conStr);
-            Assert.Equal(conStr,"Hello");
+            Console.WriteLine(DB.ConStr);
+            Assert.Equal("server=localhost\\sqlexpress;database=student;uid=sa;pwd=Neev@123", DB.ConStr);
             // var con = DB.GetConnection();
             // Assert.IsType<IDbConnection>(con);
             /*StudentRepository repository = new StudentRepository();

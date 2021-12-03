@@ -8,3 +8,8 @@ Swagger installation can be done for .net core app
 
 ConnectionStrings: https://stackoverflow.com/questions/50507382/store-retrieve-connectionstring-from-appsettings-json-in-asp-net-core-2-mvc-ap
                    https://davemateer.com/2020/10/12/connect-to-database-using-dapper
+                   https://stackoverflow.com/questions/39083372/how-to-read-connection-string-in-net-core (Post with 5)
+
+Best practices Log4Net: https://stackify.com/log4net-guide-dotnet-logging/ (some best practices to log)                   
+                        https://stackoverflow.com/questions/8926409/log4net-hierarchy-and-logging-levels (Levels tables)
+                        https://blog.elmah.io/log4net-tutorial-the-complete-guide-for-beginners-and-pros/ (Example of Different Configfiles)

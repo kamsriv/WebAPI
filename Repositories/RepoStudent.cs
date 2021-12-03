@@ -1,12 +1,11 @@
 using System;
-using Microsoft.Extensions.Options;
 using Dapper.Contrib.Extensions;
 using System.Data.SqlClient;
-namespace StudentAPI
+using StudentAPI.Models;
+namespace StudentAPI.Repositories
 {
     class StudentRepository : IStudentRepository
     {
-        
         public ICommon Create(Student t)
         {
             ICommon retVal = new Common();
