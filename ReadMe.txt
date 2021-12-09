@@ -13,3 +13,4 @@ ConnectionStrings: https://stackoverflow.com/questions/50507382/store-retrieve-c
 Best practices Log4Net: https://stackify.com/log4net-guide-dotnet-logging/ (some best practices to log)                   
                         https://stackoverflow.com/questions/8926409/log4net-hierarchy-and-logging-levels (Levels tables)
                         https://blog.elmah.io/log4net-tutorial-the-complete-guide-for-beginners-and-pros/ (Example of Different Configfiles)
+GlobalException Handling at Startup.cs : https://stackoverflow.com/questions/38630076/asp-net-core-web-api-exception-handling

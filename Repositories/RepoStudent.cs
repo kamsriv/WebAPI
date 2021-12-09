@@ -1,10 +1,11 @@
 using System;
 using Dapper.Contrib.Extensions;
 using System.Data.SqlClient;
+using StudentAPI.Interfaces;
 using StudentAPI.Models;
 namespace StudentAPI.Repositories
 {
-    class StudentRepository : IStudentRepository
+    public class StudentRepository : IStudentRepository
     {
         public ICommon Create(Student t)
         {
@@ -31,7 +32,7 @@ namespace StudentAPI.Repositories
             StudentList retVal = new StudentList();
             try
             {
-                using (SqlConnection con = new SqlConnection())
+                using (var con = DB.GetConnection())
                 {
                     retVal.Students.AddRange(con.GetAll<Student>());
                 }

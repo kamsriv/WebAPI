@@ -1,20 +1,15 @@
 using StudentAPI.Models;
 using StudentAPI.Repositories;
+using StudentAPI.Interfaces;
 
 namespace StudentAPI.Business
 {
     public class StudentBL
     {
-        StudentRepository repo;
-        public StudentBL()
-        {
-            repo = new StudentRepository();
-        }
         public ICommon Create(Student stu)
         {
-            return repo.Create(stu);
+                 throw new System.NotImplementedException();
         }
-        
     }
     
 }

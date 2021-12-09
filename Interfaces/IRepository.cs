@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using StudentAPI.Models;
 
-namespace StudentAPI
+namespace StudentAPI.Interfaces
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         ICommon Create(T t);
         ICommon Update(T t);
         ICommon Delete(T t);
     }
 
-    interface IStudentRepository:IRepository<Student>
+    public interface IStudentRepository:IRepository<Student>
     {
         StudentList GetList();
     }
