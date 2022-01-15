@@ -1,4 +1,6 @@
 
+using System;
+
 namespace StudentAPI
 {
     public class Common : ICommon
@@ -50,7 +52,7 @@ namespace StudentAPI
         }
         public StudentAPIException(string message, System.Exception inner) : base(message, inner)
         {
-            ErrLogger.LogMessage($"An exception has occurred in the API controller {message}\nStackTrace: {inner.ToString()}",ErrLogger.LogType.ERROR);
+            ErrLogger.LogMessage($"An exception has occurred in the API controller {message}\nStackTrace: {Convert.ToString(inner)}",ErrLogger.LogType.ERROR);
         }
     }
 }

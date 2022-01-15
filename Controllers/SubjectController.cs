@@ -4,7 +4,7 @@ namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SubjectController : BaseApiController<LoginRequest>
+    public class SubjectController : ControllerBase
     {
         public SubjectController()
         {
